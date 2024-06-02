@@ -19,7 +19,7 @@ export class ProductService {
     return this.http.post<Products>('https://fakestoreapi.com/products',JSON.stringify(request))
   }
   updateProduct(request:CreateProduct){
-    return this.http.put<Products>(`ttps://fakestoreapi.com/products/${request.id}`,JSON.stringify(request))
+    return this.http.put<Products>(`https://fakestoreapi.com/products/${request.id}`,JSON.stringify(request))
   }
   delete(id:number){
     return this.http.delete<Products>(`https://fakestoreapi.com/products/${id}`);

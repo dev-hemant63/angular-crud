@@ -6,3 +6,6 @@ table thead{
 img{
     height: 9rem;
 }
+.card-cus{
+    justify-content: space-between;
+}

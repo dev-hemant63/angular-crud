@@ -5,6 +5,9 @@
           <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Add New
           </button>
+          <button type="button" class="btn btn-outline-primary btn-sm" (click)="openModal()">
+            Add New 2
+          </button>
       </div>
       <div class="card-body">
         
@@ -31,16 +34,15 @@
                       <td>{{product.price}}</td>
                       <td><img src="{{product.image}}"/></td>
                       <td class="d-flex">
-                        <a class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getProductDetails(product.id)">Edit</a>
-                        <!-- <a class="btn btn-sm btn-outline-info" routerLink="/create-product/{{product.id}}">Edit</a> -->
+                        <a class="btn btn-sm btn-outline-info" (click)="getProductDetails(product.id)">Edit</a>
                         <a class="btn btn-sm btn-outline-warning" routerLink="/product-view/{{product.id}}">View</a>
                         <button class="btn btn-sm btn-outline-danger" (click)="deleteProduct(product.id)">Delete</button>
-  
                       </td>
                     </tr>
                   </tbody>
                   
                 </table>
+                <app-product-modal style="display: none" [data]="productDetails"></app-product-modal>
           </div>
       </div>
       </div>
@@ -48,7 +50,7 @@
 </div>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -142,4 +144,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

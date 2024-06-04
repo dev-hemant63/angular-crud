@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../../Services/product.service';
+import { SharedServiceService } from '../../Services/shared-service.service';
 import { CreateProduct, ProductList, Products } from '../../Interfaces/Product/ProductList';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductModalComponent } from '../product-modal/product-modal.component';
@@ -29,7 +30,7 @@ export class HomeComponent {
     }
   };
 
-  constructor(private _productService: ProductService, private fb: FormBuilder, private _modalService: ModalService) {
+  constructor(private _productService: ProductService, private fb: FormBuilder, private _modalService: ModalService,private _sharedService:SharedServiceService) {
     this.getProducts();
     this.productFrom = this.fb.group({
       category: ['', Validators.required],
@@ -86,7 +87,6 @@ export class HomeComponent {
       }, error => {
         console.error(error);
       });
-      this.openModal();
     }
 
   }
@@ -94,7 +94,18 @@ export class HomeComponent {
   closeModal() {
     $('.btn-close').click();
   }
-  openModal() {
+  openModal(productid: number) {
+    if(productid){
+      this._productService.getProductById(productid).subscribe(apidata => {
+        this._sharedService.sendData(apidata);
+      }, error => {
+        console.error(error);
+      });
+    }
+    else{
+      this._sharedService.sendData(this.productDetails);
+    }
+    
     this._modalService.show<CreateProduct>(ProductModalComponent, {
       title: 'Create Product',
       size: ModalSize.large

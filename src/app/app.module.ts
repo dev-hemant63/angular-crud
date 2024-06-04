@@ -11,6 +11,9 @@ import { GetProductsComponent } from './Components/get-products/get-products.com
 import { CreateProductComponent } from './Components/create-product/create-product.component';
 import { ProductViewComponent } from './Components/product-view/product-view.component';
 import {FormsModule} from '@angular/forms';
+import { ModalModule } from '@developer-partners/ngx-modal-dialog';
+import { ProductModalComponent } from './Components/product-modal/product-modal.component';
+
 
 @NgModule({
   declarations: [
@@ -20,13 +23,15 @@ import {FormsModule} from '@angular/forms';
     FooterComponent,
     GetProductsComponent,
     CreateProductComponent,
-    ProductViewComponent
+    ProductViewComponent,
+    ProductModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ModalModule
   ],
   providers: [
     provideClientHydration()

@@ -35,7 +35,8 @@
                       <td><img src="{{product.image}}"/></td>
                       <td class="d-flex">
                         <a class="btn btn-sm btn-outline-info" (click)="openModal(product.id)">Edit</a>
-                        <a class="btn btn-sm btn-outline-warning" routerLink="/product-view/{{product.id}}">View</a>
+                        <!-- <a class="btn btn-sm btn-outline-warning" routerLink="/product-view/{{product.id}}">View</a> -->
+                        <a class="btn btn-sm btn-outline-warning" (click)="viewProductDetails(product.id)">View</a>
                         <button class="btn btn-sm btn-outline-danger" (click)="deleteProduct(product.id)">Delete</button>
                       </td>
                     </tr>

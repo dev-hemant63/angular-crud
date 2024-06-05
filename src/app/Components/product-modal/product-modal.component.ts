@@ -34,7 +34,6 @@ export class ProductModalComponent {
     });
     this._sharedService.data$.subscribe(data => {
       this.data = data;
-      console.log('_sharedService',data);
     });
   }
   addProduct(requestData: CreateProduct) {

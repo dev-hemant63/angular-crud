@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductModalComponent } from '../product-modal/product-modal.component';
 import $ from 'jquery';
 import { ModalService, ModalSize } from '@developer-partners/ngx-modal-dialog';
+import { ProductViewComponent } from '../product-view/product-view.component';
 
 
 @Component({
@@ -113,5 +114,12 @@ export class HomeComponent {
       .subscribe(response => {
         console.log('newBook', response)
       });
+  }
+  viewProductDetails(productd:number){
+    this._sharedService.sendData(productd);
+    this._modalService.show<any>(ProductViewComponent,{
+      title:'Product Details',
+      size:ModalSize.large
+    });
   }
 }

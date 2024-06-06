@@ -1,4 +1,4 @@
-import { Component,Input, input } from '@angular/core';
+import { Component} from '@angular/core';
 import { CreateProduct, Products } from '../../Interfaces/Product/ProductList';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from '../../Services/product.service';
@@ -34,7 +34,6 @@ export class ProductModalComponent {
     });
     this._sharedService.data$.subscribe(data => {
       this.data = data;
-      console.log('_sharedService',data);
     });
   }
   addProduct(requestData: CreateProduct) {
